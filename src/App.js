@@ -29,7 +29,6 @@ function App() {
     
     return list.map((game, i) =>
       <li key={ i } className="gameList__item">
-        {console.log(game)}
         <div className="gameList__item--naming">
           <h3>{ setReSizeGameTitle(game.title || game.external) }</h3>
           <img src={ game.thumb } alt={ game.title || game.external }/>
