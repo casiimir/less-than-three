@@ -4,7 +4,6 @@ import './Search.css';
 function Search({ populateGameItem }) {
 
   const [gameList, setGameList] = useState([]);
-  // const [searchTitle, setSearchTitle] = useState('');
 
   const getDataGamesFrom = async() => {
     const submit = document.querySelector('#searchInput');
