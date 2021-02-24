@@ -15,16 +15,25 @@ function Search({ populateGameItem }) {
     setGameList(data);
   }
 
+  const clearInputField = () => {
+    const searchInput = document.querySelector('#searchInput');
+
+    searchInput.value = '';
+  }
+
+  const onFormSubmit = (e) => {
+    e.preventDefault();
+
+    getDataGamesFrom(gameList);
+    clearInputField();
+  }
+
   return (
     <div className="Search">
-      <input type="search" name="" id="searchInput" placeholder="Title ..." />
-      <button type="submit" onClick={ () => {
-          getDataGamesFrom(gameList);
-
-          }
-        }
-      > Find it!
-      </button>
+      <form onSubmit={ onFormSubmit }>        
+        <input type="search" name="" id="searchInput" placeholder="Title ..." />
+        <button type="submit"> Find it! </button>
+      </form>
 
       <ul className="gameList">
         { populateGameItem(gameList) } 

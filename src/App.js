@@ -46,14 +46,29 @@ function App() {
     );
   } 
 
+  const [runSearch, setRunSeach] = useState(false);
+
+  const btnSearchShow = () => {
+    const searchExpanderBtn = document.querySelector('.searchExpanderBtn');
+    
+    if (searchExpanderBtn.textContent === '🏠') {
+      searchExpanderBtn.textContent = '🔍';
+    } else {
+      searchExpanderBtn.textContent = '🏠';
+    }
+
+    runSearch ? setRunSeach(false) : setRunSeach(true);
+  }
+
   return (
     <div className="App">
-      
-      <Search populateGameItem={ populateGameItem }/>
-      <ul className="gameList">
-        { gameList ? populateGameItem(gameList) : null }
-      </ul>      
-      {/* <button className="gameList__btn">load more...</button> */}
+      <button className="searchExpanderBtn" onClick={ btnSearchShow }>🔍</button>
+      {
+        runSearch ? <Search populateGameItem={ populateGameItem }/> : 
+        <ul className="gameList">
+          { gameList ? populateGameItem(gameList) : null }
+        </ul>
+      }
     </div>
   );
 }
