@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
+import Search from './Search';
 
 function App() {
 
@@ -22,13 +23,14 @@ function App() {
 
   const setRandomColour = () => '#' + Math.floor(Math.random()*12914665).toString(16);
 
-  const populateGameItem = () => {
-    return gameList.map((game, i) =>
+  const populateGameItem = (list) => {
+
+    return list.map((game, i) =>
       <li key={ i } className="gameList__item">
 
         <div className="gameList__item--naming">
-          <h3>{ setReSizeGameTitle(game.title) }</h3>
-          <img src={ game.thumb } alt={ game.title }/>
+          <h3>{ setReSizeGameTitle(game.title || game.external) }</h3>
+          <img src={ game.thumb } alt={ game.title || game.external }/>
         </div>
 
         <div className="gameList__item--anim">
@@ -36,19 +38,20 @@ function App() {
         </div>
 
         <div className="gameList__item--info">
-          <p className="ex--price">{ game.normalPrice }</p>
-          <p className="actual--price">{ game.salePrice }</p>
+          <p className="ex--price">{ game.normalPrice || 'tot' }</p>
+          <p className="actual--price">{ game.salePrice || game.cheapest }</p>
           <a href={ `https://www.cheapshark.com/redirect?dealID=${game.dealID}` }>buy it!</a>
         </div>
-
       </li>
     );
   } 
 
   return (
     <div className="App">
+      
+      <Search populateGameItem={ populateGameItem }/>
       <ul className="gameList">
-        { gameList ? populateGameItem() : null }
+        { gameList ? populateGameItem(gameList) : null }
       </ul>      
       {/* <button className="gameList__btn">load more...</button> */}
     </div>
