@@ -11,29 +11,36 @@ function App() {
       const data = await result.json();
   
       setGameList(data);
-      console.log(data)
     }
     getDeals();
   }, []);
 
   // utility: check if TOT savings is than 70%
-  const getListBySaving = (list) => list.filter((game) => game.savings >= 80);
+  // const getListBySaving = (list) => list.filter((game) => game.savings >= 80);
 
-  const setReSizeGameTitle = (title) => title.length <= 22 ? title : title.substring(0, 16) + '...';
+  const setReSizeGameTitle = (title) => title.length <= 18 ? title : title.substring(0, 13) + '...';
 
+  const setRandomColour = () => '#' + Math.floor(Math.random()*12914665).toString(16);
 
   const populateGameItem = () => {
     return gameList.map((game, i) =>
       <li key={ i } className="gameList__item">
+
         <div className="gameList__item--naming">
           <h3>{ setReSizeGameTitle(game.title) }</h3>
           <img src={ game.thumb } alt={ game.title }/>
         </div>
+
+        <div className="gameList__item--anim">
+          <div className="shape" style={{background: setRandomColour()}}></div>
+        </div>
+
         <div className="gameList__item--info">
           <p className="ex--price">{ game.normalPrice }</p>
           <p className="actual--price">{ game.salePrice }</p>
           <a href={ `https://www.cheapshark.com/redirect?dealID=${game.dealID}` }>buy it!</a>
         </div>
+
       </li>
     );
   } 
@@ -43,7 +50,7 @@ function App() {
       <ul className="gameList">
         { gameList ? populateGameItem() : null }
       </ul>      
-      <button className="gameList__btn">load more...</button>
+      {/* <button className="gameList__btn">load more...</button> */}
     </div>
   );
 }

@@ -82,8 +82,7 @@ a {
 }
 
 .actual--price {
-  margin-top: -12px;
-  
+  margin: -6px 0;
   font-size: 1.6rem;
 }
 
@@ -98,7 +97,37 @@ a {
 }
 
 .gameList__item--info {
+  display: flex;
+  flex-direction: column;
   align-self: center;
 
   padding: 0 10px;
+}
+
+.gameList__item--anim {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  transform: translate(18px, 22px);
+
+  width: 60%;
+}
+
+.shape {
+  width: 10px;
+  height: 2px;
+
+  border-radius: 100%;
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.705);
+
+  animation: spiral 5s cubic-bezier(1, -0.02, 1, 1) infinite alternate;
+}
+
+@keyframes spiral {
+  0% {
+  }
+  100% {
+    transform: rotate(3600deg);
+    /* transform: translateY(37px); */
+  }
 }
