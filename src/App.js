@@ -19,24 +19,31 @@ function App() {
   // utility: check if TOT savings is than 70%
   const getListBySaving = (list) => list.filter((game) => game.savings >= 80);
 
+  const setReSizeGameTitle = (title) => title.length <= 22 ? title : title.substring(0, 16) + '...';
 
 
   const populateGameItem = () => {
     return gameList.map((game, i) =>
-    <li key={ i } className="gameList__item">
-      <h3>{ game.title }</h3>
-      <img src={ game.thumb } alt={ game.title }/>
-      <p>price: { game.salePrice }</p>
-      <a href={ `https://www.cheapshark.com/redirect?dealID=${game.dealID}` }>buy it!</a>
-    </li>
-  );
+      <li key={ i } className="gameList__item">
+        <div className="gameList__item--naming">
+          <h3>{ setReSizeGameTitle(game.title) }</h3>
+          <img src={ game.thumb } alt={ game.title }/>
+        </div>
+        <div className="gameList__item--info">
+          <p className="ex--price">{ game.normalPrice }</p>
+          <p className="actual--price">{ game.salePrice }</p>
+          <a href={ `https://www.cheapshark.com/redirect?dealID=${game.dealID}` }>buy it!</a>
+        </div>
+      </li>
+    );
   } 
 
   return (
     <div className="App">
       <ul className="gameList">
         { gameList ? populateGameItem() : null }
-      </ul>
+      </ul>      
+      <button className="gameList__btn">load more...</button>
     </div>
   );
 }
