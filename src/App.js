@@ -86,7 +86,7 @@ function App() {
               { gameList ? populateGameItem(gameList) : null }
             </ul>
           <button className="navButtonRight" onClick={ pageRightBtn }>👉</button>
-          <div className="statusPage">{ pageNumber }</div>
+          <div className="pageFooter">{ pageNumber }</div>
         </>
       }
     </div>

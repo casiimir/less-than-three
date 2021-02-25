@@ -85,9 +85,6 @@ a {
 
   padding: 0 5px 0;
   
-  height: 600px;
-
-  overflow-y: scroll;
 }
 
 .gameList__item {
@@ -178,9 +175,17 @@ a {
 }
 
 /* Status page bottom */
-.statusPage {
-  margin-top: 30px;
+.pageFooter {
+  position: fixed;
+  bottom: 0;
 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+
+  background: #181818;
   color: #575757;
   
   font-size: .8rem;
