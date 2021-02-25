@@ -9,15 +9,20 @@ function App() {
   const [gameList, setGameList] = useState('');
   const [runSearch, setRunSeach] = useState(false);
 
+  const [pageNumber, setPageNumber] = useState(0);
 
   useEffect(() => {
-    const getDeals = async() => {
-      const result = await fetch('https://www.cheapshark.com/api/1.0/deals?&sortBy=deal+rating&onSale=1&upperPrice=3&metacritic=60&onSale=1');
-      const data = await result.json();
-      setGameList(rmDuplicateGame(data));
-    }
     getDeals();
+    
+    setPageNumber(1)
   }, []);
+
+  const getDeals = async() => {
+    const result = await fetch(`https://www.cheapshark.com/api/1.0/deals?&sortBy=deal+rating&onSale=1&upperPrice=3&metacritic=60&onSale=1&pageNumber=${pageNumber}`);
+    const data = await result.json();
+
+    setGameList(rmDuplicateGame(data));
+  }
 
   // utility: check if TOT savings is than 70%
   // const getListBySaving = (list) => list.filter((game) => game.savings >= 80);
@@ -59,14 +64,30 @@ function App() {
     runSearch ? setRunSeach(false) : setRunSeach(true);
   }
 
+  const pageLeftBtn = () => {
+    setPageNumber(pageNumber - 1);
+    getDeals();
+  }
+
+  const pageRightBtn = () => {
+    setPageNumber(pageNumber + 1);
+    getDeals();
+  }
+
+
   return (
     <div className="App">
       <button className="searchExpanderBtn" onClick={ btnSearchShow }>🔍</button>
       {
         runSearch ? <Search populateGameItem={ populateGameItem }/> : 
-        <ul className="gameList">
-          { gameList ? populateGameItem(gameList) : null }
-        </ul>
+        <>
+          <button className="navButtonLeft" onClick={ pageLeftBtn }>👈</button>
+            <ul className="gameList">
+              { gameList ? populateGameItem(gameList) : null }
+            </ul>
+          <button className="navButtonRight" onClick={ pageRightBtn }>👉</button>
+          <div className="statusPage">{ pageNumber }</div>
+        </>
       }
     </div>
   );
