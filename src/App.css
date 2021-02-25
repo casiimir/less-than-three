@@ -24,12 +24,17 @@ a {
   font-size: .8rem;
 }
 
+em {
+  color: #b41b86;
+  font-family: 'Fascinate Inline', cursive;
+}
+
 /* Header */
 header {
   position: fixed;
   top: 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 50px;
@@ -40,6 +45,7 @@ header {
   font-size: .8rem;
   text-align: center;
 
+  box-shadow: 0 3px 10px black;
   z-index: 1;
 }
 
@@ -57,7 +63,7 @@ header h2 {
   top: -10px;
   left: -18px;  
 
-  color: #da0bb7;
+  color: #b41b86;
   font-size: 3.4rem;
   font-family: 'Fascinate Inline', cursive;
 
@@ -129,6 +135,8 @@ header h2 {
   align-items: center;
 
   margin: 60px 0;
+
+  animation: fadeIn 1s;
 }
 
 .gameList__item {
@@ -203,45 +211,72 @@ header h2 {
   display: flex;
   align-items: center;
 
-  transform: translate(82px, -22px);
-
   width: 100%;
+
+  transform: translate(90px, 34px);
+
+  opacity: .75;
 }
 
-.shape {
-  width: 10px;
-  height: 2px;
-
-  border-radius: 100%;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.705);
-
+/* .shape {
   animation: spiral 2.5s linear infinite alternate;
+} */
+
+.shape img {
+  width: 16px;
+  height: 16px;
+
+  box-shadow: 0 0 0;
 }
 
 /* Status page bottom */
 .pageFooter {
   position: fixed;
-  bottom: 0;
+  bottom: -1px;
+
 
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  
   width: 100%;
   height: 50px;
 
   background: #353535;
   color: #a7a7a7;
-  
-  font-size: .8rem;
-  text-align: center;
+
+  box-shadow: 0 -3px 10px black;
 }
 
-@keyframes spiral {
-  0% {
-    transform: rotate(0) scale(.8);
+.pageFooter--text {  
+  font-size: .8rem;
+}
+
+.pageFooter--status {
+  display: flex;
+  align-items: center;
+}
+
+.pageFooter--status p:nth-child(1) {
+  font-size: .7rem;
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, .5);
+}
+.pageFooter--status p:nth-child(2) {
+  color: #b41b86;
+
+  font-size: 2.3rem;
+  font-family: 'Fascinate Inline', cursive;
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, .75);
+
+  transform: translate(2px, -7px);
+}
+
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
   }
   100% {
-    transform: rotate(3600deg) scale(1);
-    /* transform: translateY(37px); */
+    opacity: 1;
   }
 }
