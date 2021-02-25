@@ -7,12 +7,14 @@ const rmDuplicateGame = (list) => list.filter((v,i,a)=>a.findIndex(t=>(t.title =
 function App() {
 
   const [gameList, setGameList] = useState('');
+  const [storeList, setStoreList] = useState('');
   const [runSearch, setRunSeach] = useState(false);
 
   const [pageNumber, setPageNumber] = useState(0);
 
   useEffect(() => {
     getDeals();
+    getStoreIDs();
     
     setPageNumber(1)
   }, []);
@@ -22,6 +24,21 @@ function App() {
     const data = await result.json();
 
     setGameList(rmDuplicateGame(data));
+  }
+
+  const getStoreIDs = async() => {
+    const result = await fetch(`https://www.cheapshark.com/api/1.0/stores`);
+    const data = await result.json();
+
+    setStoreList(data);
+  }
+
+  const returnStoreImgBy = (storeID) => {
+    for (let store of storeList) {
+      if(storeID === store.storeID) {
+        return store.images.icon;
+      }
+    }
   }
 
   // utility: check if TOT savings is than 70%
@@ -40,7 +57,10 @@ function App() {
         </div>
 
         <div className="gameList__item--anim">
-          <div className="shape" style={{background: setRandomColour()}}></div>
+          <div className="shape">
+            <img src={ `https://www.cheapshark.com/${ returnStoreImgBy(game.storeID) || '/img/stores/icons/26.png' }`  }
+                 alt={ game.title || game.external }/>
+          </div>
         </div>
 
         <div className="gameList__item--info">

@@ -129,6 +129,8 @@ header h2 {
   align-items: center;
 
   margin: 60px 0;
+
+  animation: fadeIn 1s;
 }
 
 .gameList__item {
@@ -203,25 +205,28 @@ header h2 {
   display: flex;
   align-items: center;
 
-  transform: translate(82px, -22px);
-
   width: 100%;
+
+  transform: translate(85px, 34px);
+
+  opacity: .75;
 }
 
-.shape {
-  width: 10px;
-  height: 2px;
-
-  border-radius: 100%;
-  box-shadow: 0 0 5px 2px rgba(0, 0, 0, 0.705);
-
+/* .shape {
   animation: spiral 2.5s linear infinite alternate;
+} */
+
+.shape img {
+  width: 16px;
+  height: 16px;
+
+  box-shadow: 0 0 0;
 }
 
 /* Status page bottom */
 .pageFooter {
   position: fixed;
-  bottom: 0;
+  bottom: -1px;
 
   display: flex;
   justify-content: center;
@@ -236,12 +241,12 @@ header h2 {
   text-align: center;
 }
 
-@keyframes spiral {
-  0% {
-    transform: rotate(0) scale(.8);
+
+@keyframes fadeIn {
+  0%{
+    opacity: 0;
   }
   100% {
-    transform: rotate(3600deg) scale(1);
-    /* transform: translateY(37px); */
+    opacity: 1;
   }
 }

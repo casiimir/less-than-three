@@ -38,27 +38,24 @@ button:active {
   box-shadow: inset 0 0 2px 1px rgba(0, 0, 0, 0.6);
 }
 
-@keyframes fadeIn {
-  0%{
-    opacity: 0;
-    transform: translateY(-100px);
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 .search .gameList {
   margin: 0;
 
-  animation: xyz 1s;
+  animation: fadeIn 1s;
 }
 
-@keyframes xyz {
-  0% {
+
+@keyframes fadeIn {
+  0%{
     opacity: 0;
   }
   100% {
     opacity: 1;
   }
+}
+
+
+/* Disable store icon into the Search Section */
+.search .gameList__item--anim {
+  display: none;
 }
