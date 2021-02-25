@@ -9,16 +9,15 @@ function App() {
   const [gameList, setGameList] = useState('');
   const [storeList, setStoreList] = useState('');
   const [runSearch, setRunSeach] = useState(false);
-
   const [pageNumber, setPageNumber] = useState(0);
-
+  
   useEffect(() => {
     getDeals();
     getStoreIDs();
     
     setPageNumber(1)
   }, []);
-
+  
   const getDeals = async() => {
     const result = await fetch(`https://www.cheapshark.com/api/1.0/deals?&sortBy=deal+rating&onSale=1&upperPrice=3&metacritic=60&onSale=1&pageNumber=${pageNumber}`);
     const data = await result.json();
@@ -45,7 +44,7 @@ function App() {
   // const getListBySaving = (list) => list.filter((game) => game.savings >= 80);
   const setReSizeGameTitle = (title) => title.length <= 18 ? title : title.substring(0, 13) + '...';
 
-  const setRandomColour = () => '#' + Math.floor(Math.random()*12914665).toString(16);
+  // const setRandomColour = () => '#' + Math.floor(Math.random()*12914665).toString(16);
 
   const populateGameItem = (list) => {
     
@@ -85,17 +84,24 @@ function App() {
   }
 
   const pageLeftBtn = () => {
-    window.scrollTo(0, document.body.offsetHeight);
-
-    setPageNumber(pageNumber - 1);
-    getDeals();
+    if (pageNumber > 1) {
+      setTimeout(() => {
+        window.scrollTo(0, document.body.offsetHeight);
+        setPageNumber(pageNumber - 1);
+        getDeals();
+      }, 200);
+    }
   }
 
   const pageRightBtn = () => {
-    window.scrollTo(0,0);
+    if (pageNumber < 9) {
+      setTimeout(() => {
 
-    setPageNumber(pageNumber + 1);
-    getDeals();
+        window.scrollTo(0,0);
+        setPageNumber(pageNumber + 1);
+        getDeals();
+      }, 200);
+    }
   }
 
   return (
@@ -108,12 +114,22 @@ function App() {
       {
         runSearch ? <Search populateGameItem={ populateGameItem }/> : 
         <>
-          <button className="navButtonLeft" onClick={ pageLeftBtn }>👈</button>
+          <button className="navButtonLeft" onClick={ pageLeftBtn }>
+            { '<' }
+          </button>
             <ul className="gameList">
               { gameList ? populateGameItem(gameList) : null }
             </ul>
-          <button className="navButtonRight" onClick={ pageRightBtn }>👉</button>
-          <div className="pageFooter"> Page: { pageNumber }</div>
+          <button className="navButtonRight" onClick={ pageRightBtn }>
+          { '>' }
+          </button>
+          <div className="pageFooter">
+            <p className="pageFooter--text">Less Than <em>3</em>, by Casiimir. &copy; 2021</p>
+            <div className="pageFooter--status">
+              <p>Page:</p>
+              <p> { pageNumber }</p>
+            </div>
+          </div>
         </>
       }
     </div>
