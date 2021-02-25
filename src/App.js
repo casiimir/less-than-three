@@ -65,18 +65,25 @@ function App() {
   }
 
   const pageLeftBtn = () => {
+    window.scrollTo(0, document.body.offsetHeight);
+
     setPageNumber(pageNumber - 1);
     getDeals();
   }
 
   const pageRightBtn = () => {
+    window.scrollTo(0,0);
+
     setPageNumber(pageNumber + 1);
     getDeals();
   }
 
-
   return (
     <div className="App">
+      <header>
+        <h3>Less Than</h3>
+        <h2>3</h2>
+      </header>
       <button className="searchExpanderBtn" onClick={ btnSearchShow }>🔍</button>
       {
         runSearch ? <Search populateGameItem={ populateGameItem }/> : 
@@ -86,7 +93,7 @@ function App() {
               { gameList ? populateGameItem(gameList) : null }
             </ul>
           <button className="navButtonRight" onClick={ pageRightBtn }>👉</button>
-          <div className="pageFooter">{ pageNumber }</div>
+          <div className="pageFooter"> Page: { pageNumber }</div>
         </>
       }
     </div>

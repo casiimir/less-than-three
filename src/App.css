@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?&family=Fascinate+Inline&family=Fascinate&display=swap');
 
 * {  
   margin: 0; padding: 0;
@@ -10,6 +11,8 @@
   border: none;
   list-style-type: none;
   outline: none;
+
+  scroll-behavior: smooth;
 }
 
 body{
@@ -19,6 +22,48 @@ body{
 a {
   color: lightseagreen;
   font-size: .8rem;
+}
+
+/* Header */
+header {
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  height: 50px;
+
+  background: #353535;
+  color: #a7a7a7;
+  
+  font-size: .8rem;
+  text-align: center;
+
+  z-index: 1;
+}
+
+header h3 {
+  width: 50px;
+
+  font-family: 'Fascinate', cursive;
+  font-size: .8rem;
+
+  text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+header h2 {
+  position: relative;
+  top: -10px;
+  left: -18px;  
+
+  color: #da0bb7;
+  font-size: 3.4rem;
+  font-family: 'Fascinate Inline', cursive;
+
+  text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.85);
+
+  z-index: -1;
 }
 
 .App {
@@ -59,7 +104,7 @@ a {
 /* Search expander button */
 .searchExpanderBtn {
   position: fixed;
-  top: 0;
+  top: 50px;
   right: -16px;
   
   padding: 0 0px 0 0;
@@ -83,8 +128,7 @@ a {
   flex-direction: column;
   align-items: center;
 
-  padding: 0 5px 0;
-  
+  margin: 60px 0;
 }
 
 .gameList__item {
@@ -185,13 +229,11 @@ a {
   width: 100%;
   height: 50px;
 
-  background: #181818;
-  color: #575757;
+  background: #353535;
+  color: #a7a7a7;
   
   font-size: .8rem;
-  font-weight: bold;
   text-align: center;
-  text-decoration: underline;
 }
 
 @keyframes spiral {

@@ -28,7 +28,7 @@ function Search({ populateGameItem }) {
   }
 
   return (
-    <div className="Search">
+    <div className="search">
       <form onSubmit={ onFormSubmit }>        
         <input type="search" name="" id="searchInput" placeholder="Title ..." />
         <button type="submit"> Find it! </button>
