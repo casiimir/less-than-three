@@ -144,7 +144,7 @@ header h2 {
   flex-direction: row;
   justify-content: space-between;
 
-  margin: 5px 0;
+  margin: 10px 0;
   width: 100%;
 
   box-shadow: -2px 5px 6px .2px #0000003a;
@@ -213,7 +213,7 @@ header h2 {
 
   width: 100%;
 
-  transform: translate(90px, 34px);
+  transform: translate(22px, 26px);
 
   opacity: .75;
 }
@@ -280,5 +280,40 @@ header h2 {
   }
   100% {
     opacity: 1;
+  }
+}
+
+
+@media (min-width: 676px) {
+  .gameList{
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .gameList__item {
+    display: flex;
+    flex-direction: row;
+  
+    margin: 10px 60px;
+    width: 250px;
+  
+    box-shadow: -2px 5px 6px .2px #0000003a;
+  
+    text-align: center;
+  }
+  
+  .gameList__item--anim {
+    position: relative;
+    left: 0;
+  
+    display: flex;
+    align-items: center;
+  
+    width: 100%;
+  
+    transform: translate(20px, 25px);
+  
+    opacity: .75;
   }
 }

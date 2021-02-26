@@ -12,6 +12,10 @@ function App() {
   const [runSearch, setRunSeach] = useState(false);
   const [pageNumber, setPageNumber] = useState(0);
   const [loadingScreen, setLoadingScreen] = useState(false);
+
+  // range price in fetch call
+  const [lowerPrice, setLowerPrice] = useState(0);
+  const [upperPrice, setUpperPrice] = useState(3);
  
   useEffect(() => {
     getDeals();
@@ -21,7 +25,8 @@ function App() {
   }, []);
   
   const getDeals = async() => {
-    const result = await fetch(`https://www.cheapshark.com/api/1.0/deals?&sortBy=deal+rating&onSale=1&upperPrice=3&metacritic=60&onSale=1&pageNumber=${pageNumber}`);
+    // const result = await fetch(`https://www.cheapshark.com/api/1.0/deals?&sortBy=deal+rating&onSale=1&upperPrice=3&metacritic=60&onSale=1&pageNumber=${pageNumber}`);
+    const result = await fetch(`https://www.cheapshark.com/api/1.0/deals?&sortBy=deal+rating&onSale=1&lowerPrice=${lowerPrice}&upperPrice=${upperPrice}&metacritic=60&onSale=1&pageNumber=${pageNumber}`);
     const data = await result.json();
 
     setGameList(rmDuplicateGame(data));
@@ -90,11 +95,10 @@ function App() {
   const pageLeftBtn = () => {
     if (pageNumber > 1) {
       setLoadingScreen(true);
+      getDeals();
 
       setTimeout(() => {
         setPageNumber(pageNumber - 1);
-        getDeals();
-
         setLoadingScreen(false);
       }, 500);
     }
@@ -103,13 +107,11 @@ function App() {
   const pageRightBtn = () => {
     if (pageNumber < 7) {
       setLoadingScreen(true);
+      getDeals();
 
       setTimeout(() => {
-        window.scrollTo(0,0);
-
-        getDeals();
+        window.scrollTo(0,0);        
         setPageNumber(pageNumber + 1);
-
         setLoadingScreen(false);
       }, 500);
     }
