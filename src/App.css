@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 @import url('https://fonts.googleapis.com/css2?&family=Fascinate+Inline&family=Fascinate&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
 
 * {  
   margin: 0; padding: 0;
@@ -86,9 +87,13 @@ header h2 {
   position: fixed;
 
   margin: 0;
-  padding-right: 30px;
+  padding-right: 35px;
+  padding-bottom: 12px;
 
-  font-size: 1rem;
+
+  font-size: 1.6rem;
+  font-weight: lighter;
+  font-family: 'Reggae One', cursive;
 
   top: calc(50vh - 50px);
   right: -40px;
@@ -98,13 +103,17 @@ header h2 {
 
   border-radius: 40px;
   background: rgba(37, 37, 37, 0.856);
+  color: white;
+
+  transform:skew()
 }
 
 .navButtonLeft {
   left: -40px;
-  text-align: right;
+  padding-right: 18px;
+  padding-bottom: 12px;
 
-  padding-right: 20px;
+  text-align: right;
 }
 
 /* Search expander button */
@@ -113,7 +122,7 @@ header h2 {
   top: 50px;
   right: -16px;
   
-  padding: 0 0px 0 0;
+  padding: 0 10px 0 0;
 
   width: 60px;
   height: 45px;

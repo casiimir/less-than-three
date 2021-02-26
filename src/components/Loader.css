@@ -26,5 +26,11 @@
 
   letter-spacing: 5px;
 
-  transform: translateY(-50px);
+  transform: translateY(-75px);
+}
+
+@media (min-width: 676px) {
+  .loader__anim h2 {
+    font-size: 2.5rem;
+  }
 }
