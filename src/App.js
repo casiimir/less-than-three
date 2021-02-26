@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Search from './Search';
+import Loader from './components/Loader';
 
 const rmDuplicateGame = (list) => list.filter((v,i,a)=>a.findIndex(t=>(t.title === v.title))===i);
 
@@ -10,7 +11,8 @@ function App() {
   const [storeList, setStoreList] = useState('');
   const [runSearch, setRunSeach] = useState(false);
   const [pageNumber, setPageNumber] = useState(0);
-  
+  const [loadingScreen, setLoadingScreen] = useState(false);
+ 
   useEffect(() => {
     getDeals();
     getStoreIDs();
@@ -83,24 +85,33 @@ function App() {
     runSearch ? setRunSeach(false) : setRunSeach(true);
   }
 
+
+
   const pageLeftBtn = () => {
     if (pageNumber > 1) {
+      setLoadingScreen(true);
+
       setTimeout(() => {
-        window.scrollTo(0, document.body.offsetHeight);
         setPageNumber(pageNumber - 1);
         getDeals();
-      }, 200);
+
+        setLoadingScreen(false);
+      }, 500);
     }
   }
 
   const pageRightBtn = () => {
-    if (pageNumber < 9) {
-      setTimeout(() => {
+    if (pageNumber < 7) {
+      setLoadingScreen(true);
 
+      setTimeout(() => {
         window.scrollTo(0,0);
-        setPageNumber(pageNumber + 1);
+
         getDeals();
-      }, 200);
+        setPageNumber(pageNumber + 1);
+
+        setLoadingScreen(false);
+      }, 500);
     }
   }
 
@@ -114,15 +125,23 @@ function App() {
       {
         runSearch ? <Search populateGameItem={ populateGameItem }/> : 
         <>
-          <button className="navButtonLeft" onClick={ pageLeftBtn }>
-            { '<' }
-          </button>
+          { 
+            (!loadingScreen) ?
+            <button className="navButtonLeft" onClick={ pageLeftBtn }> { '<' } </button> :
+            <Loader />
+          }    
+
             <ul className="gameList">
               { gameList ? populateGameItem(gameList) : null }
             </ul>
-          <button className="navButtonRight" onClick={ pageRightBtn }>
-          { '>' }
-          </button>
+
+            { 
+            (!loadingScreen) ?
+            <button className="navButtonRight" onClick={ pageRightBtn }> { '>' } </button> :
+            <Loader />
+          } 
+          
+
           <div className="pageFooter">
             <p className="pageFooter--text">Less Than <em>3</em>, by Casiimir. &copy; 2021</p>
             <div className="pageFooter--status">

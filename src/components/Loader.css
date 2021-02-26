@@ -1,0 +1,28 @@
+.loader {
+  position: fixed;
+  top: 50px;
+  left: 0;
+
+  width: 100%;
+  height: 100vh;
+  background: rgba(0,0,0,.9);
+
+  z-index: 1;
+}
+
+.loader__anim {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  width: 100%;
+  height: 100%;
+}
+
+.loader__anim h2 {    
+  color: #ffcb1f;
+
+  font-size: 1.5rem;
+
+  letter-spacing: 5px;
+}

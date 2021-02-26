@@ -25,8 +25,8 @@ a {
 }
 
 em {
-  color: #b41b86;
-  font-family: 'Fascinate Inline', cursive;
+  color: #ffcb1f;
+  /* font-family: 'Fascinate Inline', cursive; */
 }
 
 /* Header */
@@ -52,7 +52,7 @@ header {
 header h3 {
   width: 50px;
 
-  font-family: 'Fascinate', cursive;
+  /* font-family: 'Fascinate', cursive; */
   font-size: .8rem;
 
   text-shadow: 1px 2px 2px rgba(0, 0, 0, 0.5);
@@ -60,12 +60,12 @@ header h3 {
 
 header h2 {
   position: relative;
-  top: -10px;
-  left: -18px;  
+  top: 0;
+  left: -20px;  
 
-  color: #b41b86;
-  font-size: 3.4rem;
-  font-family: 'Fascinate Inline', cursive;
+  color: #ffcb1f;
+  font-size: 3rem;
+  /* font-family: 'Fascinate Inline', cursive; */
 
   text-shadow: 2px 3px 2px rgba(0, 0, 0, 0.85);
 
@@ -234,7 +234,6 @@ header h2 {
   position: fixed;
   bottom: -1px;
 
-
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -246,6 +245,8 @@ header h2 {
   color: #a7a7a7;
 
   box-shadow: 0 -3px 10px black;
+
+  z-index: 1;
 }
 
 .pageFooter--text {  
@@ -262,13 +263,14 @@ header h2 {
   text-shadow: 1px 2px 2px rgba(0, 0, 0, .5);
 }
 .pageFooter--status p:nth-child(2) {
-  color: #b41b86;
+  color: #ffcb1f;
 
-  font-size: 2.3rem;
-  font-family: 'Fascinate Inline', cursive;
+  font-size: 1.75rem;
+  /* font-family: 'Fascinate Inline', cursive; */
+  font-weight: bold;
   text-shadow: 1px 2px 2px rgba(0, 0, 0, .75);
 
-  transform: translate(2px, -7px);
+  transform: translate(2px, -3px);
 }
 
 
