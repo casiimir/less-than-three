@@ -10,6 +10,7 @@
   width: 100%;
 
   animation: .5s fadeIn ;
+  z-index: 1;
 }
 
 input {

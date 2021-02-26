@@ -1,6 +1,6 @@
 .loader {
   position: fixed;
-  top: 50px;
+  top: 0;
   left: 0;
 
   width: 100%;
@@ -20,13 +20,13 @@
 }
 
 .loader__anim h2 {    
-  color: #ffcb1f;
+  color: #bc69f7;
 
   font-size: 1.5rem;
 
   letter-spacing: 5px;
 
-  transform: translateY(-75px);
+  transform: translateY(-50px);
 }
 
 @media (min-width: 676px) {

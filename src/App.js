@@ -59,7 +59,9 @@ function App() {
       <li key={ i } className="gameList__item">
         <div className="gameList__item--naming">
           <h3>{ setReSizeGameTitle(game.title || game.external) }</h3>
-          <img src={ game.thumb } alt={ game.title || game.external }/>
+          <a href={ `https://www.cheapshark.com/redirect?dealID=${game.dealID || game.cheapestDealID}` }>
+            <img src ={ game.thumb } alt={ game.title || game.external }/>
+          </a>
         </div>
 
         <div className="gameList__item--anim">
@@ -143,7 +145,6 @@ function App() {
             <Loader />
           } 
           
-
           <div className="pageFooter">
             <p className="pageFooter--text">Less Than <em>3</em>, by Casiimir. &copy; 2021</p>
             <div className="pageFooter--status">
