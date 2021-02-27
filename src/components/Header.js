@@ -1,6 +1,6 @@
 function Header() {
   return (    
-    <header>
+    <header className="Header">
       <h3>Less Than</h3>
       <h2>3</h2>
     </header>

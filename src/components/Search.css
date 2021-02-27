@@ -1,4 +1,4 @@
-.search {
+.Search {
   top: 0;
   bottom: 0;
 
@@ -16,6 +16,7 @@
 }
 
 input {
+  position: relative;
   margin: 0 10px 0 0;
   padding: 3px 10px;
 
@@ -24,26 +25,37 @@ input {
   color: #f1f1f1;
   
   font-size: .75rem;
+  z-index: 9;
 }
 
-button {
-  margin: 10px 0 30px;
-  padding: 3px 10px;
+.Search button {
+  padding: 2px 20px;
 
-  border-radius: 4px;
-  color: #484848;
+  background: linear-gradient(90deg, rgba(128,91,249,1) 0%, rgba(193,131,236,1) 100%);
+  color: white;
+  border-radius: 3px;
 
-  font-size: .7rem;
   font-weight: bold;
+  font-size: .8rem;
+
+  cursor: pointer;
+  opacity: .5;
+
+  transition: all 1s;
+  animation: changeColorBtn 1.5s ease-in-out infinite alternate;
 }
 
-button:hover,
-button:focus,
-button:active {
-  box-shadow:  0 0 8px 2px rgba(0, 0, 0, 0.4);
+.Search button:hover {
+  background: linear-gradient(90deg, rgb(60, 0, 255) 0%, rgb(149, 0, 255) 100%);
+  opacity: 1;
 }
 
-.search .gameList {
+.Search button:focus,
+.Search button:active {
+  box-shadow: inset 0 0 6px black;
+}
+
+.Search .GameList {
   margin: 0;
 
   animation: fadeIn 1s;
@@ -61,6 +73,6 @@ button:active {
 
 
 /* Disable store icon into the Search Section */
-.search .gameList__item--anim {
+.Search .GameList__item--anim {
   display: none;
 }

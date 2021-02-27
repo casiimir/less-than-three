@@ -1,66 +1,64 @@
 import React, { useState, useEffect } from 'react';
 import Search from './Search';
 import Loader from './Loader';
+import GameList from './GameList';
 import Footer from './Footer';
 
 const rmDuplicateGame = (list) => list.filter((v,i,a)=>a.findIndex(t=>(t.title === v.title))===i);
 
+const dataAPI = {
+  url: 'https://www.cheapshark.com/api/1.0',
+  sortBy: 'deal+rating',
+  onSale: 'onSale=1',
+  lowPrice: 'lowerPrice=0',
+  upPrice: 'upperPrice=3',
+  critic: 'metacritic=60',
+  def: '&sortBy=deal+rating&onSale=1&lowerPrice=0&upperPrice=3&metacritic=60',
+}
+
 function Main() {
 
-    // STATE
+  // STATE
   const [gameList, setGameList] = useState('');
   const [storeList, setStoreList] = useState('');
   const [runSearch, setRunSeach] = useState(false);
   const [pageNumber, setPageNumber] = useState(0);
   const [loadingScreen, setLoadingScreen] = useState(false);
-  // range price in fetch call
-  const [lowerPrice, setLowerPrice] = useState(0);
-  const [upperPrice, setUpperPrice] = useState(3);
  
   useEffect(() => {
     getDeals();
     getStoreIDs();
-    
     setPageNumber(1)
   }, []);
 
   // FETCH & co.
   const getDeals = async() => {
-    const result = await fetch(`https://www.cheapshark.com/api/1.0/deals?&sortBy=deal+rating&onSale=1&lowerPrice=${lowerPrice}&upperPrice=${upperPrice}&metacritic=60&onSale=1&pageNumber=${pageNumber}`);
+    const { url, sortBy, onSale, lowPrice, upPrice, critic, def } = dataAPI;
+    const result = await fetch(`${url}/deals?${def}&${onSale}&pageNumber=${pageNumber}`);
     const data = await result.json();
 
     setGameList(rmDuplicateGame(data));
   }
 
   const getStoreIDs = async() => {
-    const result = await fetch(`https://www.cheapshark.com/api/1.0/stores`);
+    const result = await fetch(`${dataAPI.url}/stores`);
     const data = await result.json();
 
     setStoreList(data);
-  }
-
-  const returnStoreImgBy = (storeID) => {
-    for (let store of storeList) {
-      if(storeID === store.storeID) {
-        return store.images.icon;
-      }
-    }
   }
 
   // UTILS
   const btnSearchShow = () => {
     const searchExpanderBtn = document.querySelector('.searchExpanderBtn');
     
-    if (searchExpanderBtn.textContent === '🏠') {
-      searchExpanderBtn.textContent = '🔍';
-    } else {
+    searchExpanderBtn.textContent === '🏠' ?
+      searchExpanderBtn.textContent = '🔍' :
       searchExpanderBtn.textContent = '🏠';
-    }
-
+      
     runSearch ? setRunSeach(false) : setRunSeach(true);
   }
 
-  const pageLeftBtn = () => {
+  const changePageLeft = () => {
     if (pageNumber > 1) {
       setLoadingScreen(true);
       getDeals();
@@ -72,7 +70,7 @@ function Main() {
     }
   }
 
-  const pageRightBtn = () => {
+  const changePageRight = () => {
     if (pageNumber < 7) {
       setLoadingScreen(true);
       getDeals();
@@ -85,59 +83,26 @@ function Main() {
     }
   }
   
-  // FORMAT GAME-ITEM
-  const setReSizeGameTitle = (title) => title.length <= 18 ? title : title.substring(0, 13) + '...';
-
-  const populateGameItem = (list) => {
-    return list.map((game, i) =>
-      <li key={ i } className="gameList__item">
-        <div className="gameList__item--naming">
-          <h3>{ setReSizeGameTitle(game.title || game.external) }</h3>
-          <a href={ `https://www.cheapshark.com/redirect?dealID=${game.dealID || game.cheapestDealID}` }>
-            <img src ={ game.thumb } alt={ game.title || game.external }/>
-          </a>
-        </div>
-
-        <div className="gameList__item--anim">
-          <div className="shape">
-            <img src={ `https://www.cheapshark.com/${ returnStoreImgBy(game.storeID) || '/img/stores/icons/26.png' }`  }
-                 alt={ game.title || game.external }/>
-          </div>
-        </div>
-
-        <div className="gameList__item--info">
-          <p className="ex--price">{ game.normalPrice || 'tot' }</p>
-          <p className="actual--price">{ game.salePrice || game.cheapest }</p>
-          <a href={ `https://www.cheapshark.com/redirect?dealID=${game.dealID || game.cheapestDealID}` }>buy it!</a>
-        </div>
-      </li>
-    );
-  } 
-  
   return (
-    <>
+    <main className="Main">
       <button className="searchExpanderBtn" onClick={ btnSearchShow }>🔍</button>
-      
       {
-        runSearch ? <Search populateGameItem={ populateGameItem }/> : 
+        (!runSearch) ?
         <>
+          <GameList gameList={ gameList } storeList={ storeList }/>
           { 
             (!loadingScreen) ?
-            <button className="navButtonLeft" onClick={ pageLeftBtn }> { '<' } </button> :
+            <div className="carosello">
+              <button className="navButtonRight" onClick={ changePageRight }> { '>' } </button>
+              <button className="navButtonLeft" onClick={ changePageLeft }> { '<' } </button>
+            </div> :
             <Loader />
           }
-          <ul className="gameList">
-            { gameList ? populateGameItem(gameList) : null }
-          </ul>
-          { 
-            (!loadingScreen) ?
-            <button className="navButtonRight" onClick={ pageRightBtn }> { '>' } </button> :
-            <Loader />
-          }
-        </>
+        </> :          
+        <Search storeList={ storeList }/>
       }      
       <Footer pageNumber={ pageNumber }/>
-    </>
+    </main>
   )
 }
 

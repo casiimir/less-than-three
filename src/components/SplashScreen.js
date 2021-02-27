@@ -15,9 +15,9 @@ function SplashScreen() {
         Hi Gamer
       </h2>
       <div className="SplashScreen--text">
-        <p>Here you can find cheap game keys, under 3$. Let me know if you appreciate it.</p>
+        <p>Here you can find <strong>cheap game keys</strong>, under 3$. Let me know if you appreciate it.</p>
         <hr/>
-        <p>One last thing - Have fun with whatever make you <strong> happy</strong>!</p>
+        <p>One last thing - Have fun with whatever make you Happy!</p>
       </div>
       <button onClick={ offSplashScreen }>Load it...</button>
     </div>

@@ -1,4 +1,4 @@
-.loader {
+.Loader {
   position: fixed;
   top: 0;
   left: 0;
@@ -10,7 +10,7 @@
   z-index: 1;
 }
 
-.loader__anim {
+.Loader__anim {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,7 @@
   height: 100%;
 }
 
-.loader__anim h2 {    
+.Loader__anim h2 {    
   color: #bc69f7;
 
   font-size: 1.5rem;
@@ -30,7 +30,7 @@
 }
 
 @media (min-width: 676px) {
-  .loader__anim h2 {
+  .Loader__anim h2 {
     font-size: 2.5rem;
   }
 }
