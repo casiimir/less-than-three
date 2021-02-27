@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import GameItem from './GameItem';
 import GameList from './GameList';
-import './Search.css';
+import './Search.sass';
 
 function Search({ storeList }) {
 

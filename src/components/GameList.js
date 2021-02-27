@@ -1,5 +1,5 @@
 import GameItem from './GameItem';
-import './GameList.css';
+import './GameList.sass';
 
 function GameList({ gameList, storeList }) {
   return (

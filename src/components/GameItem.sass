@@ -1,0 +1,85 @@
+.GameList__item
+  display: flex
+  flex-direction: row
+  justify-content: space-between
+
+  margin: 10px 0
+  width: 100%
+
+  box-shadow: -2px 5px 6px .2px #0000003a
+
+  text-align: center
+  z-index: 0
+
+.GameList__item h3
+  text-shadow: 1px 3px 2px rgba(0, 0, 0, 1)
+
+.GameList__item--naming img
+  border-radius: 2px
+
+  background-color: #bc69f7
+  box-shadow: 0 0 5px 2px rgba(0, 0, 0, .8)
+  
+  height: 50px
+  width: 150px
+
+  object-fit: cover
+  opacity: .6
+
+.GameList__item--naming img:hover,
+.GameList__item--naming img:focus
+  opacity: 1
+
+.GameList__item--naming img:active
+  filter: initial
+  opacity: 1
+  filter: sepia(39%) saturate(523%) hue-rotate(340deg) brightness(85%) contrast(94%)
+
+.GameList__btn
+  margin: 30px 0 15px 0
+  padding: 5px 20px
+
+  border-radius: 4px
+  color: #181818
+
+.ex--price
+  font-size: .8rem
+  text-decoration: line-through
+  
+  opacity: .5
+
+.actual--price
+  margin: -6px 0
+  font-size: 1.6rem
+
+.actual--price::after
+  content: '€'
+  font-size: .6rem
+
+.GameList__item--naming
+  text-align: left
+
+.GameList__item--info
+  display: flex
+  flex-direction: column
+  align-self: center
+
+  padding: 0 10px
+
+.GameList__item--anim
+  position: relative
+  left: 0
+
+  display: flex
+  align-items: center
+
+  width: 100%
+
+  transform: translate(22px, 26px)
+  opacity: .75
+
+.shape img 
+  width: 16px
+  height: 16px
+
+  box-shadow: 0 0 0

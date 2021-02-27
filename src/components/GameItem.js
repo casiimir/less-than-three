@@ -1,3 +1,5 @@
+import './GameItem.sass';
+
 function GameItem({ game, storeList }) {
 
   // Format game's title

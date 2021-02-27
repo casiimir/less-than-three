@@ -1,3 +1,5 @@
+import './Header.sass';
+
 function Header() {
   return (    
     <header className="Header">

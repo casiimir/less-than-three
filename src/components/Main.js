@@ -3,6 +3,7 @@ import Search from './Search';
 import Loader from './Loader';
 import GameList from './GameList';
 import Footer from './Footer';
+import './Main.sass';
 
 const rmDuplicateGame = (list) => list.filter((v,i,a)=>a.findIndex(t=>(t.title === v.title))===i);
 

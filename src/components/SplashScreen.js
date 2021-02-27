@@ -1,4 +1,4 @@
-import './SplashScreen.css';
+import './SplashScreen.sass';
 
 function SplashScreen() {
   function offSplashScreen() {

@@ -1,3 +1,5 @@
+import './Footer.sass';
+
 function Footer({ pageNumber }) {
   return (
     <div className="Footer">
