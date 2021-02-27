@@ -30,7 +30,7 @@ function Search({ storeList }) {
       
       <form onSubmit={ onFormSubmit }>        
         <input type="search" name="" id="searchInput" placeholder="Title ..." />
-        <button type="submit"> Search </button>
+        <button type="submit">Search</button>
       </form>
       <GameList gameList = { gameList } storeList={ storeList }/>
       

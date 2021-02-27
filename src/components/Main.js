@@ -5,6 +5,7 @@ import GameList from './GameList';
 import Footer from './Footer';
 import './Main.sass';
 
+// Utility - remove douplicated items
 const rmDuplicateGame = (list) => list.filter((v,i,a)=>a.findIndex(t=>(t.title === v.title))===i);
 
 const dataAPI = {
@@ -18,7 +19,6 @@ const dataAPI = {
 }
 
 function Main() {
-
   // STATE
   const [gameList, setGameList] = useState('');
   const [storeList, setStoreList] = useState('');
@@ -49,12 +49,17 @@ function Main() {
   }
 
   // UTILS
-  const btnSearchShow = () => {
+  const setBtnIcon = () => {
     const searchExpanderBtn = document.querySelector('.searchExpanderBtn');
-    
-    searchExpanderBtn.textContent === '🏠' ?
-      searchExpanderBtn.textContent = '🔍' :
-      searchExpanderBtn.textContent = '🏠';
+
+    console.log(searchExpanderBtn.dataset.type)
+    if (searchExpanderBtn.dataset.type === 'house') {
+      searchExpanderBtn.dataset.type = 'loupe';
+      searchExpanderBtn.classList.add('searchExpanderBtnLoupe');
+    } else {
+      searchExpanderBtn.dataset.type = 'house';
+      searchExpanderBtn.classList.remove('searchExpanderBtnLoupe');
+    }
       
     runSearch ? setRunSeach(false) : setRunSeach(true);
   }
@@ -86,7 +91,8 @@ function Main() {
   
   return (
     <main className="Main">
-      <button className="searchExpanderBtn" onClick={ btnSearchShow }>🔍</button>
+      <button className="searchExpanderBtn" onClick={ setBtnIcon } data-type="house">
+      </button>
       {
         (!runSearch) ?
         <>
