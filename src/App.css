@@ -104,7 +104,8 @@ header h2 {
   background: rgba(37, 37, 37, 0.856);
   color: #bc69f7;
 
-  transform:skew()
+  transform:skew();
+  opacity: .75;
 }
 
 .navButtonLeft {
@@ -113,6 +114,11 @@ header h2 {
   padding-bottom: 12px;
 
   text-align: right;
+}
+
+.navButtonLeft:hover,
+.navButtonRight:hover {
+  opacity: 1;
 }
 
 /* Search expander button */
