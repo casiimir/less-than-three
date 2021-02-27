@@ -140,7 +140,7 @@ header h2 {
 
   box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.418);
   opacity: .75;
-  z-index: 2;
+  z-index: 3;
 }
 
 .gameList{
