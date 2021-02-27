@@ -6,22 +6,23 @@ import Footer from './Footer';
 const rmDuplicateGame = (list) => list.filter((v,i,a)=>a.findIndex(t=>(t.title === v.title))===i);
 
 function Main() {
+
     // STATE
-    const [gameList, setGameList] = useState('');
-    const [storeList, setStoreList] = useState('');
-    const [runSearch, setRunSeach] = useState(false);
-    const [pageNumber, setPageNumber] = useState(0);
-    const [loadingScreen, setLoadingScreen] = useState(false);
-    // range price in fetch call
-    const [lowerPrice, setLowerPrice] = useState(0);
-    const [upperPrice, setUpperPrice] = useState(3);
-   
-    useEffect(() => {
-      getDeals();
-      getStoreIDs();
-      
-      setPageNumber(1)
-    }, []);
+  const [gameList, setGameList] = useState('');
+  const [storeList, setStoreList] = useState('');
+  const [runSearch, setRunSeach] = useState(false);
+  const [pageNumber, setPageNumber] = useState(0);
+  const [loadingScreen, setLoadingScreen] = useState(false);
+  // range price in fetch call
+  const [lowerPrice, setLowerPrice] = useState(0);
+  const [upperPrice, setUpperPrice] = useState(3);
+ 
+  useEffect(() => {
+    getDeals();
+    getStoreIDs();
+    
+    setPageNumber(1)
+  }, []);
 
   // FETCH & co.
   const getDeals = async() => {

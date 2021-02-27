@@ -12,9 +12,50 @@
 
   background: rgba(0,0,0,1);
 
+  text-align: center;
+
   opacity: 1;
   transition: all .35s;
   z-index: 999;
+}
+
+.SplashScreen--way {
+  position: absolute;
+  top: 50px;
+
+  padding: 0 15px;
+}
+.SplashScreen--way p {
+  font-size: .8rem;
+  color: rgba(255, 255, 255, 0.541);
+}
+
+.SplashScreen--title {
+  margin: 10px 0;
+
+  color: rgb(197, 147, 255);
+
+  font-size: 1.5rem;
+}
+
+.SplashScreen--text p {
+  font-size: .85rem;
+  padding: 0 50px;
+}
+
+.SplashScreen hr {
+  margin: 15px 0;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.164);
+}
+
+.SplashScreen strong {
+  color: rgb(197, 147, 255);
+  
+  font-size: .85rem;
+
+  text-transform: uppercase;
+  text-decoration: underline;
 }
 
 .SplashScreen button {
@@ -25,4 +66,19 @@
 
   font-weight: bold;
   font-size: 1rem;
+
+  cursor: pointer;
+  opacity: .75;
+
+  transition: all 1s;
+}
+
+.SplashScreen button:hover {
+  background: linear-gradient(90deg, rgb(92, 43, 253) 0%, rgba(177, 69, 255) 100%);
+  opacity: 1;
+}
+
+.SplashScreen button:focus,
+.SplashScreen button:active {
+  box-shadow: inset 0 0 6px black;
 }

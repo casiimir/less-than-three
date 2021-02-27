@@ -4,6 +4,7 @@ import Main from './components/Main';
 import SplashScreen from './components/SplashScreen';
 
 function App() {
+
   return (
     <div className="App">
       <SplashScreen />
