@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import GameItem from './GameItem';
 import GameList from './GameList';
 import './Search.sass';
 
@@ -31,9 +30,8 @@ function Search({ storeList }) {
       
       <form onSubmit={ onFormSubmit }>        
         <input type="search" name="" id="searchInput" placeholder="Title ..." />
-        <button type="submit"> Find it! </button>
+        <button type="submit"> Search </button>
       </form>
-
       <GameList gameList = { gameList } storeList={ storeList }/>
       
     </div>

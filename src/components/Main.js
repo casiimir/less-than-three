@@ -67,7 +67,7 @@ function Main() {
       setTimeout(() => {
         setPageNumber(pageNumber - 1);
         setLoadingScreen(false);
-      }, 500);
+      }, 750);
     }
   }
 
@@ -80,7 +80,7 @@ function Main() {
         window.scrollTo(0,0);        
         setPageNumber(pageNumber + 1);
         setLoadingScreen(false);
-      }, 500);
+      }, 750);
     }
   }
   

@@ -1,4 +1,5 @@
-/* Navigation Buttons */
+@import '../variables'
+
 .navButtonLeft,
 .navButtonRight
   position: fixed
@@ -11,7 +12,7 @@
 
   margin: 0
   padding-right: 35px
-  padding-bottom: 12px
+  padding-bottom: 8px
 
   font-size: 1.6rem
   font-weight: lighter
@@ -19,20 +20,23 @@
 
   border-radius: 40px
   background: rgba(37, 37, 37, 0.856)
-  color: #bc69f7
+  color: $p-color
 
   opacity: .75
+
+  &:hover
+    opacity: 1
+  
+  &:focus,
+  &:active
+    box-shadow: inset 0 0px 6px $dark-color
 
 .navButtonLeft
   left: -40px
   padding-right: 18px
-  padding-bottom: 12px
+  padding-bottom: 8px
 
   text-align: right
-
-.navButtonLeft:hover,
-.navButtonRight:hover 
-  opacity: 1
 
 .searchExpanderBtn
   position: fixed
@@ -44,12 +48,16 @@
   width: 60px
   height: 45px
 
-  background-color: #484848
+  background-color: $grey-color
   border-radius: 35px
-  color: #f1f1f1
+  color: $light-color
 
   font-size: 1rem
 
-  box-shadow: 0 0 5px 4px rgba(0, 0, 0, 0.418)
   opacity: .75
   z-index: 3
+
+  &:hover
+    opacity: 1
+  &:active
+    box-shadow: inset 0 0px 6px $dark-color

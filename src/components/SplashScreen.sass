@@ -1,3 +1,5 @@
+@import '../variables'
+
 .SplashScreen 
   position: fixed
   top: 0
@@ -10,80 +12,89 @@
   align-items: center
   justify-content: center
 
-  background: rgba(0,0,0,1)
+  padding: 0 20px
 
+  background: $dark-color
   text-align: center
 
   opacity: 1
   transition: all .35s
   z-index: 4
 
-.SplashScreen--way 
-  position: absolute
-  top: 50px
+  > *
+    margin: 20px 0
 
-  padding: 0 15px
+  hr
+    margin: 7.5px 0 10px
+    border-bottom: 1px solid $p-color
 
-.SplashScreen--way p
-  font-size: .8rem
-  color: rgba(255, 255, 255, 0.541)
+  strong
+    font-size: .85rem
+    animation: changeColor .5s ease-in-out infinite alternate
 
-.SplashScreen--title
-  margin: 10px 0
-  width: 300px
+  button 
+    padding: 5px 26px
 
-  background: white
-  color: rgb(32, 32, 32)
+    color: white
+    border-radius: 6px
 
-  font-size: 1.5rem
-  text-transform: uppercase
+    font-weight: bold
+    font-size: 1rem
 
-.SplashScreen--text p 
-  font-size: .85rem
-  padding: 0 50px
+    cursor: pointer
+    opacity: 1
 
-.SplashScreen hr
-  margin: 15px 0
-  border-bottom: 1px solid rgba(255, 255, 255, 0.164)
+    transition: all 1s
+    animation: changeColorBtn 4s ease-in-out infinite alternate
 
-.SplashScreen strong 
-  color: rgb(197, 147, 255)
+    &:hover 
+      opacity: .65
+    &:focus,
+    &:active
+      box-shadow: inset 0 0px 6px $dark-color
+
   
-  font-size: .85rem
-  animation: changeColor 1s ease-in-out infinite alternate
+  .SplashScreen--way 
+    position: absolute
+    top: 35px
 
-.SplashScreen button 
-  padding: 5px 26px
+    padding: 0 10px
+    margin: 0 20px
 
-  background: linear-gradient(90deg, rgba(128,91,249,1) 0%, rgba(193,131,236,1) 100%)
-  color: white
-  border-radius: 3px
+    border-right: 1px solid $t-color
 
-  font-weight: bold
-  font-size: 1rem
+    p
+      font-size: .8rem
+      color: rgba(255, 255, 255, .75)
+    
+    em
+      font-size: .75rem
+      opacity: .85
+      
 
-  cursor: pointer
-  opacity: .75
+  .SplashScreen--title
+    margin: 30px 0
+    width: 300px
 
-  transition: all 1s
-  animation: changeColorBtn 1.5s ease-in-out infinite alternate
+    background: white
+    color: $dark-color
 
-.SplashScreen button:hover 
-  background: linear-gradient(90deg, rgb(60, 0, 255) 0%, rgb(149, 0, 255) 100%)
-  opacity: 1
+    font-size: 1.8rem
+    text-transform: uppercase
 
-.SplashScreen button:focus,
-.SplashScreen button:active 
-  box-shadow: inset 0 0 6px black
+    p 
+      font-size: .85rem
+      padding: 0 50px
+
 
 @keyframes changeColor
   from
-    color: blueviolet
+    color: $p-color
   to 
-    color: violet
+    color: $s-color
 
 @keyframes changeColorBtn
   from
-    background: violet
+    background: $t-color
   to 
-    background: blueviolet
+    background: $p-color

@@ -9,7 +9,7 @@ function SplashScreen() {
   return (
     <div className="SplashScreen">
       <div className="SplashScreen--way">        
-        <p>Now is no time to think of what you do not have. Think of what you can do with what there is.</p>
+        <p>"Now is no time to think of what you do not have. Think of what you can do with what there is."</p>
         <em>Ernest Hemingway</em></div>
       <h2 className="SplashScreen--title">
         Hi Gamer
