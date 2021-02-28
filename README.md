@@ -19,9 +19,9 @@
 </p>
 <hr>
 
-<br>
 <img align="right" src="./public/img/2.jpg" alt="less-than-3" width=150/>
 
+<br><br>
 <h2>Improvements to be made ⏳</h2>
 <ol>
   <li>Sort by price</li>
@@ -32,8 +32,6 @@
   <li>Add more stores to compare</li>
   <li>and much more...</li>
 </ol>
-
-<br>
 
 <hr>
 
