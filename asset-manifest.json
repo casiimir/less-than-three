@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/less-than-three/static/css/main.d6b038b2.chunk.css",
+    "main.css": "/less-than-three/static/css/main.c3399ce6.chunk.css",
     "main.js": "/less-than-three/static/js/main.fe70761d.chunk.js",
     "main.js.map": "/less-than-three/static/js/main.fe70761d.chunk.js.map",
     "runtime-main.js": "/less-than-three/static/js/runtime-main.08bde6d2.js",
@@ -8,14 +8,14 @@
     "static/js/2.6b05b216.chunk.js": "/less-than-three/static/js/2.6b05b216.chunk.js",
     "static/js/2.6b05b216.chunk.js.map": "/less-than-three/static/js/2.6b05b216.chunk.js.map",
     "index.html": "/less-than-three/index.html",
-    "static/css/main.d6b038b2.chunk.css.map": "/less-than-three/static/css/main.d6b038b2.chunk.css.map",
+    "static/css/main.c3399ce6.chunk.css.map": "/less-than-three/static/css/main.c3399ce6.chunk.css.map",
     "static/js/2.6b05b216.chunk.js.LICENSE.txt": "/less-than-three/static/js/2.6b05b216.chunk.js.LICENSE.txt",
     "static/media/Main.sass": "/less-than-three/static/media/loupe.1d92f967.png"
   },
   "entrypoints": [
     "static/js/runtime-main.08bde6d2.js",
     "static/js/2.6b05b216.chunk.js",
-    "static/css/main.d6b038b2.chunk.css",
+    "static/css/main.c3399ce6.chunk.css",
     "static/js/main.fe70761d.chunk.js"
   ]
 }
