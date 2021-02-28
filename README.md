@@ -1,5 +1,5 @@
-<h1>Less 3 Than - The Heming(way) approach to buy Games Key, and solve the programming problems</h1>
-<h2>How to find the best and cheapest Game Keys from internet</h2>
+<h1>Less 3 Than - The Heming(way) approach to buy game keys</h1>
+<h2>How to find the best and cheapest game keys from internet</h2>
 
 <p align="center">
   <img src="./public/img/medium2.jpg" alt="less-than-3"/>
@@ -11,7 +11,7 @@
 
 
 
-<h2>Less3️⃣Than - for Whom code types - and gamers! ⌨️</h2>
+<h2>Less3️⃣Than - for whom code types ⌨️, and gamers! 🎮</h2>
 <p>
   Less 3 Than is a very usefull web app that's kind of all gamers wants! It makes it possibile to find the lowest price available for any video game (actually only PC/Mac), under 3$! By comparing more than 25 store (actually).
   The web app takes the gamer by the hand and guides him towards the lists of the cheapest and top rated games, his store and the link where buy it, with a common interface, minimal and clear design.
