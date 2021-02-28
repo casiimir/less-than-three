@@ -36,7 +36,7 @@
 <hr>
 
 <h3>More info about?</h3>
-<a href="#">Follow this link to Hashnode</a>
+<a href="https://casiimir.hashnode.dev/less-3-than-the-hemingway-approach-to-buy-game-keys">Follow this link to Hashnode</a>
 
 <h2>MIT License</h2>
 
