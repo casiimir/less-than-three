@@ -1,0 +1,74 @@
+@import '../variables'
+
+.navButtonLeft,
+.navButtonRight
+  position: fixed
+
+  top: calc(50vh - 50px)
+  right: -40px
+
+  width: 80px
+  height: 70px
+
+  margin: 0
+  padding-right: 35px
+  padding-bottom: 8px
+
+  font-size: 1.6rem
+  font-weight: lighter
+  font-family: 'Reggae One', cursive
+
+  border-radius: 40px
+  background: rgba(37, 37, 37, 0.856)
+  color: $p-color
+
+  opacity: .75
+
+  &:hover
+    opacity: 1
+  
+  &:focus,
+  &:active
+    box-shadow: inset 0 0px 6px $dark-color
+
+.navButtonLeft
+  left: -40px
+  padding-right: 18px
+  padding-bottom: 8px
+
+  text-align: right
+
+.searchExpanderBtn
+  position: fixed
+  top: 50px
+  right: -16px
+  
+  padding: 0 10px 0 0
+
+  width: 60px
+  height: 45px
+
+  background-image: url('../home.png')
+  background-color: $grey-color
+  background-size: 22px
+  background-position: 12.5px 10px
+  background-repeat: no-repeat
+  content: 'house'
+  
+  border-radius: 35px
+  color: $light-color
+
+  font-size: 1rem
+
+  opacity: .75
+  z-index: 3
+
+  &:hover
+    opacity: 1
+  &:active
+    box-shadow: inset 0 0px 6px $dark-color
+
+.searchExpanderBtnLoupe
+  background-image: url('../loupe.png') !important
+  background-size: 20px
+  background-position: 13.5px 12px

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import './Search.css';
+import GameList from './GameList';
+import './Search.sass';
 
-function Search({ populateGameItem }) {
+function Search({ storeList }) {
 
   const [gameList, setGameList] = useState([]);
 
   const getDataGamesFrom = async() => {
     const submit = document.querySelector('#searchInput');
-
     const result = await fetch(`https://www.cheapshark.com/api/1.0/games?title=${submit.value}`)
     const data = await result.json();
 
@@ -16,27 +16,24 @@ function Search({ populateGameItem }) {
 
   const clearInputField = () => {
     const searchInput = document.querySelector('#searchInput');
-
     searchInput.value = '';
   }
 
   const onFormSubmit = (e) => {
     e.preventDefault();
-
     getDataGamesFrom(gameList);
     clearInputField();
   }
 
   return (
-    <div className="search">
+    <div className="Search">
+      
       <form onSubmit={ onFormSubmit }>        
         <input type="search" name="" id="searchInput" placeholder="Title ..." />
-        <button type="submit"> Find it! </button>
+        <button type="submit">Search</button>
       </form>
-
-      <ul className="gameList">
-        { populateGameItem(gameList) } 
-      </ul>
+      <GameList gameList = { gameList } storeList={ storeList }/>
+      
     </div>
   );
 }

@@ -1,0 +1,62 @@
+@import '../variables'
+
+.Search
+  top: 0
+  bottom: 0
+
+  display: flex
+  flex-direction: column
+  align-items: center
+  
+  margin: 60px 0
+  width: 100%
+
+  animation: .5s fadeIn
+  z-index: 2
+
+  input 
+    position: relative
+    margin: 0 10px 0 0
+    padding: 3px 10px
+
+    border-radius: 3px
+    background-color: $grey-color
+    color: $light-color
+
+    font-size: .75rem
+    z-index: 9
+
+  button
+    position: relative
+    padding: 2px 20px
+
+    color: white
+    border-radius: 3px
+
+    font-weight: bold
+    font-size: .8rem
+
+    opacity: 1
+    transition: all 1s
+    animation: changeColorBtn 4s ease-in-out infinite alternate
+    z-index: 9
+
+    &:hover 
+      opacity: .75
+
+    &:focus,
+    &:active 
+      box-shadow: inset 0 0px 6px $dark-color
+
+  .GameList 
+    margin: 20px 0
+    animation: fadeIn 1s
+
+  .GameList__item--anim
+    display: none
+
+@keyframes fadeIn
+  0%
+    opacity: 0
+  100%
+    opacity: 1

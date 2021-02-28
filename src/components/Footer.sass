@@ -1,0 +1,45 @@
+@import '../variables'
+
+.Footer 
+  position: fixed
+  left: 0
+  bottom: -1px
+
+  display: flex
+  justify-content: space-around
+  align-items: center
+  
+  width: 100%
+  height: 40px
+
+  background: linear-gradient(90deg, $t-color 0%, $s-color 100%)
+
+  box-shadow: 0 -3px 10px black
+  z-index: 1
+
+  .Footer--text 
+    font-size: .6rem
+    color: $light-color
+
+  .Footer--status
+    display: flex
+    align-items: center
+
+    p:nth-child(1)
+      color: $light-color
+
+      font-weight: bold
+      font-size: .7rem
+      text-shadow: 2px 0 2px rgba(0, 0, 0, .75)
+      text-decoration: underline
+
+      transform: translate(2px, 0)
+
+    p:nth-child(2)
+      color: $light-color
+
+      font-size: 1.8rem
+      font-weight: bold
+      text-shadow: 2px 0 2px rgba(0, 0, 0, .75)
+
+      transform: translate(6px, -4px)

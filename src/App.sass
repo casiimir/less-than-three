@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap')
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap')
+@import 'variables'
+
+* 
+  margin: 0; padding: 0
+
+  color: $light-color
+  font-family: 'Quantico', sans-serif
+  font-size: 16px
+
+  border: none
+  list-style-type: none
+  outline: none
+
+  scroll-behavior: smooth
+
+body
+  background: $dark-color
+
+  a 
+    color: $p-color
+    font-size: .8rem
+
+  button 
+    cursor: pointer
+
+  em 
+    color: $p-color
+
+.App 
+  display: flex
+  flex-direction: column
+  justify-content: center
+  align-items: center
+
+@keyframes fadeIn 
+  0%
+    opacity: 0
+  
+  100% 
+    opacity: 1
+  
+@media (min-width: 676px) 
+  .GameList
+    justify-content: center
+    flex-direction: row
+    flex-wrap: wrap
+
+    .GameList__item 
+      display: flex
+      flex-direction: row
+    
+      margin: 10px 60px
+      width: 250px
+    
+      box-shadow: -2px 5px 6px .2px #0000003a
+    
+      text-align: center
+  
+      .GameList__item--anim 
+        position: relative
+        left: 0
+      
+        display: flex
+        align-items: center
+      
+        width: 100%
+      
+        transform: translate(20px, 25px)
+        opacity: .75
