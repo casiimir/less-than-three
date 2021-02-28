@@ -19,7 +19,6 @@
 </p>
 <hr>
 
-<br>
 <img align="right" src="./public/img/2.jpg" alt="less-than-3" width=150/>
 
 <h2>Improvements to be made ⏳</h2>
@@ -33,9 +32,9 @@
   <li>and much more...</li>
 </ol>
 
-<br>
-
 <hr>
+
+<img align="right" src="./public/img/first.jpeg" alt="less-than-3" width=150/>
 
 <h3>More info about?</h3>
 <a href="#">Follow this link to Hashnode</a>
@@ -48,8 +47,4 @@
 <h4>Buy me a coffee ☕</h4>
 <a href="https://www.buymeacoffee.com/casiimir">
   <img width="200" src="https://cdn.hashnode.com/res/hashnode/image/upload/v1614510978627/Ph5pQupgq.jpeg" alt="casiimir-buymeacoffee">
-<<<<<<< HEAD
 </a>
-=======
-</a>
->>>>>>> b03f30d88fa36be92c752f129cd605e0e89221e8
