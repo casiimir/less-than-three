@@ -34,8 +34,6 @@
 
 <hr>
 
-<img align="right" src="./public/img/first.jpeg" alt="less-than-3" width=150/>
-
 <h3>More info about?</h3>
 <a href="#">Follow this link to Hashnode</a>
 
